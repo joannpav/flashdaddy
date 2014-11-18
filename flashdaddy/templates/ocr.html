@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link href="{% static 'css/qa.css' %}" type="text/css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="{% static 'js/selectmytext.js' %}"></script>
+    <title></title>
+</head>
+<body>
+
+
+
+<p>Compose your question</p>
+<select id="list">
+  <option value="what">What</option>
+ <option value="how">How</option>
+</select>
+
+<select id="list2">
+  <option value="are">are</option>
+ <option value="is">is</option>
+</select>
+
+
+    <p>now select some text</p>
+    <div id="ocr">{{ textFile }}</div>
+
+
+<form id="CreateCardForm" name="CreateCardForm"  action="/createCard/" method="POST">{% csrf_token %}
+
+<p>
+    <label class="qaLabel">Question</label><br>
+  <textarea class="qa" id="q" name="questionText"></textarea>
+   </p>
+<p>
+    <label class="qaLabel">Answer</label><br>
+    <textarea class="qa" id="a" name="answerText"></textarea>
+</p>
+
+    <p><button class="createCard" onclick="createCard">Create Card</button></p>
+</form>
+
+    <p><button class="createCard" id="clearCard" name="clearCard" onclick="ClearCard()">Erase Card</button></p>
+    <a href="/">Go back and select another file</a>
+</body>
+</html>
