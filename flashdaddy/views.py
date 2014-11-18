@@ -63,11 +63,13 @@ def createCard(request):
 	qa = Question(question=q, answer=a)
 	qa.save()
 
-	return render_to_response('cardbox.html', locals(), RequestContext(request))
+	return render_to_response('savedCard.html', locals(), RequestContext(request))
 
 
 def viewCardList(request):
 	print "in viewCardList"
+	questions = Question.objects.all()
+	return render_to_response('cardBox.html', locals(), RequestContext(request))
 
 
 def takeQuiz(request):

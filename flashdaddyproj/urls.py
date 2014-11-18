@@ -8,6 +8,6 @@ urlpatterns = patterns('',
 	url(r'^$', 'flashdaddy.views.home', name='home'),
 	url(r'^createCard/', 'flashdaddy.views.createCard', name='createCard'),
 	url(r'^ocr/', 'flashdaddy.views.ocr', name='ocr'),
-
+	url(r'^cardBox/', 'flashdaddy.views.viewCardList', name='cardBox'),
     #url(r'^admin/', include(admin.site.urls)),
 )
